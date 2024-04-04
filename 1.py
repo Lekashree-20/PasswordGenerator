@@ -11,4 +11,10 @@ def generate_password(length, use_symbols=False, use_numbers=False, use_uppercas
         characters += string.ascii_uppercase
     if use_lowercase:
         characters += string.ascii_lowercase
-    
+
+    if not any([use_symbols, use_numbers, use_uppercase, use_lowercase]):
+        print("Error: You must select at least one character type.")
+        return None
+    password = ''.join(random.choice(characters) for _ in range(length))
+    return password
+#init
